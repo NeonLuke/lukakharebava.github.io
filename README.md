@@ -1,1 +1,468 @@
-# lukakharebava.github.io
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luka Kharebava — CV</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #111410;
+    --surface: #191C17;
+    --surface2: #1E221A;
+    --border: #2A2E26;
+    --amber: #D4923A;
+    --amber-dim: #8C5E1E;
+    --amber-glow: rgba(212,146,58,0.08);
+    --cream: #E8E2D5;
+    --muted: #6A7060;
+    --green-line: #2D4A35;
+    --text: #CCC8BC;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @media print {
+    body { background: var(--bg) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { box-shadow: none !important; margin: 0 !important; }
+  }
+
+  body {
+    background: #0A0C09;
+    font-family: 'Outfit', sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    min-height: 100vh;
+  }
+
+  .page {
+    width: 794px;
+    min-height: 1123px;
+    background: var(--bg);
+    box-shadow: 0 0 0 1px var(--border), 0 40px 120px rgba(0,0,0,0.6);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* AMBER GLOW TOP */
+  .page::before {
+    content: '';
+    position: absolute;
+    top: -100px; left: 50%;
+    transform: translateX(-50%);
+    width: 500px; height: 300px;
+    background: radial-gradient(ellipse, rgba(212,146,58,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    padding: 52px 56px 40px;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+    align-items: end;
+    position: relative;
+  }
+  .header-left h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 58px;
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 0.95;
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+  }
+  .header-left h1 span {
+    font-style: italic;
+    font-weight: 600;
+    color: var(--amber);
+  }
+  .header-left .role {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border-left: 2px solid var(--amber-dim);
+    padding-left: 12px;
+  }
+
+  .header-right {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-end;
+  }
+  .contact-line {
+    font-family: 'Space Mono', monospace;
+    font-size: 9.5px;
+    color: var(--muted);
+    letter-spacing: 0.5px;
+  }
+  .contact-line span { color: var(--text); }
+
+  /* ── BODY GRID ── */
+  .body {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    flex: 1;
+  }
+
+  /* ── LEFT MAIN ── */
+  .main {
+    padding: 40px 40px 40px 56px;
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
+
+  .summary {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-weight: 300;
+    color: var(--text);
+    line-height: 1.8;
+    font-style: italic;
+    border-left: 1px solid var(--amber-dim);
+    padding-left: 18px;
+  }
+  .summary strong {
+    font-style: normal;
+    font-weight: 600;
+    color: var(--cream);
+  }
+
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .exp-item {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 0 18px;
+    margin-bottom: 28px;
+    position: relative;
+  }
+  .exp-item:last-child { margin-bottom: 0; }
+
+  /* Timeline line */
+  .exp-item::before {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 32px;
+    bottom: -14px;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--amber-dim), transparent);
+  }
+  .exp-item:last-child::before { display: none; }
+
+  .exp-dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--surface2);
+    border: 1px solid var(--amber-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .exp-dot-inner {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--amber);
+  }
+
+  .exp-content {}
+  .exp-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2px;
+  }
+  .exp-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--cream);
+  }
+  .exp-date {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    color: var(--muted);
+  }
+  .exp-company {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--amber);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .exp-bullets { list-style: none; }
+  .exp-bullets li {
+    font-size: 12.5px;
+    color: #8A8A7A;
+    line-height: 1.65;
+    padding: 3px 0 3px 14px;
+    position: relative;
+    font-weight: 300;
+  }
+  .exp-bullets li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--amber-dim);
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  /* ── RIGHT SIDEBAR ── */
+  .aside {
+    padding: 40px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .aside-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 8.5px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 14px;
+  }
+
+  .skill-list { display: flex; flex-direction: column; gap: 8px; }
+  .skill-tag {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--text);
+    padding: 6px 10px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    line-height: 1.3;
+  }
+
+  .lang-row {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .lang-row:last-child { border: none; }
+  .lang-name-d {
+    font-size: 12px;
+    color: var(--cream);
+    font-weight: 500;
+    margin-bottom: 2px;
+  }
+  .lang-lvl {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    color: var(--amber);
+    letter-spacing: 1px;
+  }
+
+  .edu-block {
+    padding: 14px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+  }
+  .edu-school {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--cream);
+    margin-bottom: 4px;
+  }
+  .edu-degree {
+    font-size: 11px;
+    color: var(--amber);
+    font-weight: 400;
+    margin-bottom: 4px;
+  }
+  .edu-note {
+    font-size: 10.5px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  .achieve-list { display: flex; flex-direction: column; gap: 8px; }
+  .achieve-row {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.4;
+    padding-left: 12px;
+    position: relative;
+  }
+  .achieve-row::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    font-size: 7px;
+    color: var(--amber-dim);
+    top: 2px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-left">
+      <h1>Luka <span>Kharebava</span></h1>
+      <div class="role">Customer Success Representative</div>
+    </div>
+    <div class="header-right">
+      <div class="contact-line"><span>Kharebava2006@gmail.com</span></div>
+      <div class="contact-line"><span>+995 574 057 838</span></div>
+      <div class="contact-line"><span>Tbilisi, Georgia</span></div>
+    </div>
+  </header>
+
+  <div class="body">
+    <!-- MAIN -->
+    <main class="main">
+      <p class="summary">
+        Customer-focused professional with hands-on experience in <strong>online support, client communication,</strong> and <strong>relationship-driven sales.</strong> Fluent in English at C1 — comfortable with native speakers and formal business correspondence. I bring calm efficiency to high-volume environments and a genuine commitment to building lasting client relationships.
+      </p>
+
+      <div>
+        <div class="section-label">Experience</div>
+
+        <div class="exp-item">
+          <div class="exp-dot"><div class="exp-dot-inner"></div></div>
+          <div class="exp-content">
+            <div class="exp-meta">
+              <div class="exp-title">Online Support Specialist</div>
+              <div class="exp-date">2025 – 2026</div>
+            </div>
+            <div class="exp-company">Yandex · 6 months</div>
+            <ul class="exp-bullets">
+              <li>Delivered customer support across chat and online platforms, resolving diverse user issues with precision and care</li>
+              <li>Handled high volumes of concurrent inquiries while maintaining consistent response quality in a fast-paced setting</li>
+              <li>Maintained professional written communication standards throughout every client interaction</li>
+              <li>Escalated complex cases by coordinating with internal teams, ensuring thorough issue resolution</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-dot"><div class="exp-dot-inner"></div></div>
+          <div class="exp-content">
+            <div class="exp-meta">
+              <div class="exp-title">Sales Manager</div>
+              <div class="exp-date">2026</div>
+            </div>
+            <div class="exp-company">FLatz</div>
+            <ul class="exp-bullets">
+              <li>Consulted clients on their needs and presented tailored products and service solutions</li>
+              <li>Built and sustained long-term customer relationships, driving satisfaction and repeat business</li>
+              <li>Navigated negotiations professionally, aligning client expectations with company objectives</li>
+              <li>Followed up proactively to ensure post-engagement satisfaction and identify further opportunities</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-dot"><div class="exp-dot-inner"></div></div>
+          <div class="exp-content">
+            <div class="exp-meta">
+              <div class="exp-title">Assistant</div>
+              <div class="exp-date">2022</div>
+            </div>
+            <div class="exp-company">Early Work Experience</div>
+            <ul class="exp-bullets">
+              <li>Supported operational and administrative tasks; developed communication, teamwork and organizational foundations</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- SIDEBAR -->
+    <aside class="aside">
+      <div>
+        <div class="aside-label">Education</div>
+        <div class="edu-block">
+          <div class="edu-school">KIU</div>
+          <div class="edu-degree">Business Management</div>
+          <div class="edu-note">2nd year · 2024–2028</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="aside-label">Languages</div>
+        <div class="lang-row">
+          <div class="lang-name-d">English</div>
+          <div class="lang-lvl">C1 — Fluent</div>
+        </div>
+        <div class="lang-row">
+          <div class="lang-name-d">Georgian</div>
+          <div class="lang-lvl">Native</div>
+        </div>
+        <div class="lang-row">
+          <div class="lang-name-d">Russian</div>
+          <div class="lang-lvl">B1 — Intermediate</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="aside-label">Core Skills</div>
+        <div class="skill-list">
+          <div class="skill-tag">Client Communication</div>
+          <div class="skill-tag">Online Support & CRM</div>
+          <div class="skill-tag">Relationship Management</div>
+          <div class="skill-tag">Problem-Solving</div>
+          <div class="skill-tag">Business Correspondence</div>
+          <div class="skill-tag">Sales & Consultation</div>
+          <div class="skill-tag">Multitasking</div>
+          <div class="skill-tag">Adaptability</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="aside-label">Achievements</div>
+        <div class="achieve-list">
+          <div class="achieve-row">Everest Educational Competition Certificate</div>
+          <div class="achieve-row">National Math Championship — Gold Medalist (×multiple)</div>
+          <div class="achieve-row">Business & Communication Training Programs</div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+</div>
+</body>
+</html>
